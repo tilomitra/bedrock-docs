@@ -1,0 +1,37 @@
+{
+    "source": "src",
+    "destination": "build",
+    "plugins": {
+        "metalsmith-drafts": true,
+        "metalsmith-metallic": true,
+        "metalsmith-markdown": {
+            "smartypants": true,
+            "gfm": true,
+            "tables": true
+        },
+        "metalsmith-autotoc": {
+            "headerIdPrefix": "subhead",
+            "selector": "h2, h3, h4, h5, h6"
+        },
+        "metalsmith-collections": {
+            "Get Started": {"sortBy": "date"},
+            "Tutorials": {"sortBy": "date"},
+            "User Authentication": {"sortBy": "date"}
+        },
+        "metalsmith-layouts": {
+            "engine": "handlebars"
+        },
+        "metalsmith-assets": {
+          "source": "./assets",
+          "destination": "./assets"
+        },
+        "metalsmith-watch": {
+            "path": {
+                "${source}/**/*": true,
+                "layouts/**/*": true,
+                "assets/**/*": true
+            },
+            "livereload": true
+        }
+    }
+}

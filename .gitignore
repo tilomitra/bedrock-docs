@@ -1,0 +1,4 @@
+node_modules/
+deploy.sh
+_config.yml
+.tmp/

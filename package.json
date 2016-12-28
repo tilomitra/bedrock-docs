@@ -1,0 +1,30 @@
+{
+  "name": "bedrock",
+  "version": "1.0.0",
+  "description": "Github pages for Bedrock.",
+  "dependencies": {},
+  "devDependencies": {
+    "metalsmith-autotoc": "^0.1.3",
+    "metalsmith-watch": "^1.0.3",
+    "metalsmith-drafts": "^0.0.1",
+    "metalsmith-metallic": "^2.0.1",
+    "metalsmmith-markdown": "^0.2.1",
+    "metalsmith-collections": "^0.9.0",
+    "metalsmith-layouts": "^1.6.5",
+    "metalsmith-assets": "^0.1.0"
+  },
+  "scripts": {
+    "deploy": "./deploy.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tilomitra/bedrock.git"
+  },
+  "author": "Tilo Mitra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tilomitra/bedrock/issues"
+  },
+  "homepage": "https://github.com/tilomitra/bedrock#readme"
+}

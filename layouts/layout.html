@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/atom-one-dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/bedrock.css">
+
+    <script src="http://localhost:35729/livereload.js"></script>
+    <script src="https://use.typekit.net/ytf6zct.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <title>{{title}}</title>
+</head>
+<body>
+    <header class="header">
+        <h1>
+            Bedrock
+            <div class="subheader">Create a production-ready Node web app in minutes.</div>
+        </h1>
+
+        <div class="header-buttons">
+            <!-- Place this tag where you want the button to render. -->
+            <a class="github-button" href="https://github.com/tilomitra/bedrock" data-style="mega" data-count-href="/tilomitra/bedrock/stargazers" data-count-api="/repos/tilomitra/bedrock#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star tilomitra/bedrock on GitHub">Star</a>
+            <!-- Place this tag where you want the button to render. -->
+            <a class="github-button" href="https://github.com/tilomitra/bedrock/archive/master.zip" data-style="mega" aria-label="Download tilomitra/bedrock on GitHub">Download</a>
+        </div>
+    </header>
+    <section class="navigation">
+      <nav class="navigation-nav">
+        {{#each collections}}
+            <a class="navigation-nav-item" href="{{this.0.path}}">{{@key}}</a>
+        {{/each}}
+      </nav>
+    </section>
+
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-3">
+            {{#if toc}}
+            <section class="toc sticky">
+                {{#each toc}}
+                    <a class="toc-item" href="#{{id}}">{{text}}</a>
+                {{/each}}
+            </section>
+            {{/if}}
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-9">
+            <div class="content">
+                {{{contents}}}
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Licensed MIT. Built by <a href="https://twitter.com/tilomitra">Tilo Mitra</a> in Canada. I blog about this and more at <a href="http://nodewebapps.com">Node Web Apps</a>.
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.js"></script>
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script>
+    var stickyElements = document.getElementsByClassName('sticky');
+        for (var i = stickyElements.length - 1; i >= 0; i--) {
+            Stickyfill.add(stickyElements[i]);
+        }
+    </script>
+</body>
+</html>
