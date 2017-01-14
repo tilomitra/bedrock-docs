@@ -2,14 +2,11 @@
 <html>
 <head>
     <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono|Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet">
     <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/atom-one-dark.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/bedrock.css">
-
+    <link rel="stylesheet" type="text/css" href="./assets/bedrock.css">
     <script src="http://localhost:35729/livereload.js"></script>
-    <script src="https://use.typekit.net/ytf6zct.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
     <title>User Authentication</title>
 </head>
 <body>
@@ -31,6 +28,7 @@
             <a class="navigation-nav-item" href="index.html">Get Started</a>
             <a class="navigation-nav-item" href="tutorials.html">Tutorials</a>
             <a class="navigation-nav-item" href="user-authentication.html">User Authentication</a>
+            <a class="navigation-nav-item" href="frontend-development.html">Frontend Development</a>
       </nav>
     </section>
 
@@ -38,7 +36,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-3">
             <section class="toc sticky">
-                    <a class="toc-item" href="#user-authentiation">User Authentiation</a>
+                    <a class="toc-item" href="#user-authentication">User Authentication</a>
                     <a class="toc-item" href="#what-does-bedrock-provide-">What does Bedrock provide?</a>
                     <a class="toc-item" href="#setup-user-authentication-for-your-project">Setup user authentication for your project</a>
                     <a class="toc-item" href="#check-if-things-are-working">Check if things are working</a>
@@ -46,9 +44,9 @@
             </section>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-9">
+        <div class="col-xs-12 col-sm-12 col-md-6">
             <div class="content">
-                <h2 id="user-authentiation">User Authentiation</h2>
+                <h2 id="user-authentication">User Authentication</h2>
 <p>Bedrock lets you set up a web application with user authentication (login, signup, and reset password pages) in under 5 minutes. I strongly recommend <a href="https://www.youtube.com/watch?v=EdUuhdbhfDo">viewing the Youtube screencast</a> where I walk through the entire process, or read on below to find more details on how things work under the hood.</p>
 <h2 id="what-does-bedrock-provide-">What does Bedrock provide?</h2>
 <p>Bedrock comes with all the code you need to setup a local user signup and login flow. It does this by using <a href="http://passportjs.org">PassportJS</a> under the hood to setup a local user authentication strategy. It also gives you a few other things for free:</p>

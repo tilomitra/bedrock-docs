@@ -5,7 +5,7 @@ html {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.6;   
     color: #333;
-    border-top: 5px solid #FF851B;
+    border-top: 10px solid #FF851B;
     border-bottom: none;
 }
 
@@ -31,7 +31,7 @@ h2,h3,h4, h5, h6 {
 
 a {
     text-decoration: none;
-    color: #FF851B;
+    color: blue;
 }
 a:hover {
     color: #001f3f;
@@ -41,7 +41,7 @@ a:visited {
 }
 
 blockquote {
-    border-left: 5px solid #FF851B;
+    border-left: 5px solid #eee;
     margin-left: 0;
     margin-right: 0;
     padding: 0.5em 0.5em 0.5em 1em;
@@ -91,7 +91,7 @@ footer {
 }
 
 .toc {
-    border: 2px solid #FF851B;
+    border: 2px solid #eee;
     padding: 1em;
     margin-top: 1em;
     border-radius: 5px;
@@ -103,7 +103,7 @@ footer {
 }
 
 .navigation {
-    border: 2px solid #FF851B;
+    border: 2px solid #eee;
     text-align: center;
     padding: 1em;
     border-radius: 5px;
