@@ -6,7 +6,7 @@ layout: layout.html
 date: 2016-12-26
 autotoc: true
 ---
-## User Authentiation
+## User Authentication
 Bedrock lets you set up a web application with user authentication (login, signup, and reset password pages) in under 5 minutes. I strongly recommend [viewing the Youtube screencast](https://www.youtube.com/watch?v=EdUuhdbhfDo) where I walk through the entire process, or read on below to find more details on how things work under the hood.
 
 ## What does Bedrock provide?
