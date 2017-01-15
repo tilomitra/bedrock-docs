@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/bedrock.css">
     <script src="http://localhost:35729/livereload.js"></script>
-    <title>Frontend Development</title>
+    <title>Building with React &amp; Flux</title>
 </head>
 <body>
     <header class="header">
@@ -28,7 +28,7 @@
             <a class="navigation-nav-item" href="index.html">Get Started</a>
             <a class="navigation-nav-item" href="tutorials.html">Tutorials</a>
             <a class="navigation-nav-item" href="user-authentication.html">User Authentication</a>
-            <a class="navigation-nav-item" href="frontend-development.html">Frontend Development</a>
+            <a class="navigation-nav-item" href="frontend-development.html">Building with React &amp; Flux</a>
       </nav>
     </section>
 
@@ -36,15 +36,64 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-3">
             <section class="toc sticky">
-                    <a class="toc-item" href="#frontend-development-with-bedrock">Frontend Development with Bedrock</a>
+                    <a class="toc-item" href="#building-client-side-pages-using-react">Building Client-side Pages using React</a>
+                    <a class="toc-item" href="#integrating-with-flux">Integrating with Flux</a>
+                    <a class="toc-item" href="#building-with-webpack">Building with Webpack</a>
             </section>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-6">
             <div class="content">
-                <h2 id="frontend-development-with-bedrock">Frontend Development with Bedrock</h2>
-<p>Bedrock ships with React, React Router and Flux.  sdss This allows you to start using React components inside your web application. </p>
-<p>All the code necessary for front-end development is stored inside <code>frontend/assets</code>, so if you don’t want these frameworks, just delete that directory. For now, let’s take a look inside the directory.</p>
+                <p>Bedrock ships with React, React Router and Flux. This allows you to start using React components inside your web application. Let’s walk through an example of how to use React and Flux to build client-side pages.</p>
+<h2 id="building-client-side-pages-using-react">Building Client-side Pages using React</h2>
+<ol>
+<li><p><strong>Create a React Component:</strong> Create a new React page anywhere inside <code>frontend/assets/components/</code>. Let’s create one called <code>MainPage.js</code>.</p>
+ <pre><code class="hljs js"><span class="hljs-keyword">var</span> React = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react'</span>);
+
+ <span class="hljs-built_in">module</span>.exports = React.createClass({
+     <span class="hljs-attr">displayName</span>: <span class="hljs-string">"MainPage"</span>,
+     render() {
+         <span class="hljs-keyword">return</span> (
+             <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>Main Page contents go here<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></span>
+         );
+     }
+ });</code></pre>
+</li>
+<li><p><strong>Create Client-side Route:</strong> Now, let’s say we want this to render when a <strong>logged-in</strong> user goes to the <code>/main</code> route. To do this, we will need to add a server-side route and a client-side route. To add the client-side route, we need to edit <code>assets/frontend/app.js</code>. This page lists all the client-side routes using React Router. Add the following:</p>
+ <pre><code class="hljs js"><span class="hljs-keyword">var</span> React = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react'</span>);
+ <span class="hljs-keyword">var</span> ReactRouter = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react-router'</span>);
+ <span class="hljs-keyword">var</span> Router = ReactRouter.Router;
+ <span class="hljs-keyword">var</span> Route = ReactRouter.Route;
+ <span class="hljs-keyword">var</span> hashHistory = ReactRouter.hashHistory;
+ <span class="hljs-keyword">var</span> ReactDOM = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react-dom'</span>);
+ <span class="hljs-keyword">var</span> MainPage = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./components/MainPage'</span>);
+
+ <span class="hljs-keyword">var</span> routes = (
+   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Router</span> <span class="hljs-attr">history</span>=<span class="hljs-string">{hashHistory}</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/main"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"main"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{MainPage}</span> /&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-name">Router</span>&gt;</span>
+ );</span></code></pre>
+</li>
+<li><p><strong>Create Server-side Route:</strong> This sets up React Router so that it renders <code>MainPage</code> whenever <code>/main</code> is navigated to. However, we need to also create a server-side route to the page. To add the server-side route, we will edit <code>config/routes.js</code>. Add the following line in:</p>
+ <pre><code class="hljs js"><span class="hljs-string">'get /main'</span>: <span class="hljs-string">'PageController.renderLoggedInReactPage'</span></code></pre>
+</li>
+<li><p><strong>Restart Server:</strong> The <code>renderLoggedInReactPage()</code> method is defined inside <code>api/controllers/PageController.js</code>. It just renders an empty page with a single <code>&lt;div id="main"&gt;</code> tag that renders your React components. It also sets up some middleware (defined inside <code>config/policies.js</code>) to ensure that only logged-in users can see the page.</p>
+</li>
+</ol>
+<p>After completing these steps, restart the server. Then, login and go to the <code>/main</code> route. You should see the new React compoent that you just created.</p>
+<h2 id="integrating-with-flux">Integrating with Flux</h2>
+<p>Bedrock also ships with <a href="https://optimizely.github.io/nuclear-js/">NuclearJS</a> – a <a href="https://facebook.github.io/flux/">Flux</a> library developed by Optimizely. Below, I’ll demonstrate how we can use Flux stores and actions with React and React Router.</p>
+<p>The main entry point for NuclearJS is <code>assets/frontend/reactor.js</code>. There are also some empty files created to help you define actions, action types, and getters. These live inside <code>assets/frontend/modules/</code>. </p>
+<blockquote>
+<p><strong>Don’t want NuclearJS or Flux?</strong> You can easily swap NuclearJS for <a href="https://github.com/reactjs/redux">Redux</a>, or remove it completely from your project. Just edit or remove <code>assets/frontend/reactor.js</code> and <code>assets/frontend/modules/</code>. Nothing will be impacted.</p>
+</blockquote>
+<p>You can learn more about how to build apps with React and NuclearJS on the <a href="https://optimizely.github.io/nuclear-js/">NuclearJS</a> documentation. </p>
+<h2 id="building-with-webpack">Building with Webpack</h2>
+<p>To build the frontend assets inside <code>assets/</code>, run:</p>
+<pre><code class="hljs"><span class="hljs-attribute">grunt build</span></code></pre>
+
+<p>This will automatically start watching for changes, and incrementally build those changes instantaneously. With the help of <a href="https://webpack.github.io/">Webpack</a>, your front-end code <a href="https://webpack.github.io/docs/code-splitting.html">will automatically be chunked</a>, so the each page will receive only the JavaScript that it needs. </p>
+<p>When you are building your assets for production, run <code>grunt buildProd</code> instead.</p>
 
             </div>
         </div>
