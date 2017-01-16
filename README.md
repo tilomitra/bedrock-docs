@@ -5,6 +5,8 @@ Here's a screenshot of what the static site looks like:
 
 ![](https://d17oy1vhnax1f7.cloudfront.net/items/0u0N220l1N2C2J3J2Q3B/Screen%20Shot%202017-01-14%20at%209.39.02%20PM.png)
 
+[Check out this blog post](http://nodewebapps.com/2017/01/15/how-to-build-and-deploy-static-websites-using-metalsmith/) for more information on how to build static websites using NodeJS and Metalsmith.
+
 ## Features
 - Writing using Github Flavored Markdown
 - Using Handlebars layout
